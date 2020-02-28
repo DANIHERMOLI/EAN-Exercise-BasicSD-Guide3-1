@@ -78,8 +78,8 @@ public class Main {
                     }
                     break;
                 case 3:
-                    System.out.println("What department are you looking for?");
                     input.nextLine();
+                    System.out.println("What department are you looking for?");
                     String search = input.nextLine();
                     int counter = 0;
                     for (Employee employee : employeeList) {
