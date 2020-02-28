@@ -1,3 +1,12 @@
+/**
+ @title          :Main.java
+ @description    :This is the solution to the third guide of software development activity 1
+ @author         :Sergio Guzman @ sgioguzman@gmail.com
+ @date           :2020-02-28
+ @version        :1.0
+ @usage          :java Main.java
+ ==================================================================================================================
+ */
 package com.company;
 
 import java.util.ArrayList;
@@ -10,11 +19,11 @@ public class Main {
 
         ArrayList<Employee> employeeList = new ArrayList<>();
         boolean exit = false;
-        Employee test1 = new Employee(1, "test1", 123, "dept1", "ch1");
-        Employee test2 = new Employee(2, "test2", 456, "dept1", "ch2");
-        Employee test3 = new Employee(3, "test3", 789, "dept2", "ch3");
-        Employee test4 = new Employee(4, "test4", 1346, "dept2", "ch4");
-        Employee test5 = new Employee(5, "test5", 4679, "dept3", "ch5");
+        Employee test1 = new Employee(1, "daniela hernandez", 4500000, "product development", "junior developer");
+        Employee test2 = new Employee(2, "natalia morales", 6000000, "product development", "senior developer");
+        Employee test3 = new Employee(3, "sergio guzman", 6000000, "product development", "senior developer");
+        Employee test4 = new Employee(4, "karen pinzon", 7100000, "product management", "scrum master");
+        Employee test5 = new Employee(5, "fredy mendez", 5500000, "support architecture", "dev-ops engineer");
         employeeList.add(test1);
         employeeList.add(test2);
         employeeList.add(test3);
@@ -38,8 +47,9 @@ public class Main {
                         }
                         input.nextLine();
                     } while(true);
+                    input.nextLine();
                     System.out.println("Enter the NAME of the employee:");
-                    newEmployee.setName(input.next().toLowerCase());
+                    newEmployee.setName(input.nextLine().toLowerCase());
                     do {
                         System.out.println("Enter the SALARY of the employee:");
                         intChecker = input.hasNextLong();
@@ -51,11 +61,15 @@ public class Main {
                         }
                         input.nextLine();
                     } while(true);
+                    input.nextLine();
                     System.out.println("Enter the DEPARTMENT of the employee:");
-                    newEmployee.setDepartment(input.next().toLowerCase());
+                    newEmployee.setDepartment(input.nextLine().toLowerCase());
                     System.out.println("Enter the CHARGE of the employee:");
-                    newEmployee.setCharge(input.next().toLowerCase());
+                    newEmployee.setCharge(input.nextLine().toLowerCase());
                     employeeList.add(newEmployee);
+                    System.out.println();
+                    System.out.println("Employee " + newEmployee.getName() + " created successfully");
+                    System.out.println();
                     break;
                 case 2:
                     for (Employee employee : employeeList) {
@@ -64,10 +78,34 @@ public class Main {
                     }
                     break;
                 case 3:
+                    System.out.println("What department are you looking for?");
+                    input.nextLine();
+                    String search = input.nextLine();
+                    int counter = 0;
+                    for (Employee employee : employeeList) {
+                        if(employee.getDepartment().equals(search)) {
+                            System.out.println(employee);
+                            System.out.println();
+                            counter++;
+                        }
+                    }
+                    System.out.println("The " + search + " department has " + counter + " employees.");
+                    System.out.println();
                     break;
                 case 4:
+                    for(Employee employee : employeeList) {
+                        employee.setSalary(employee.getSalary()*0.10);
+                    }
+                    System.out.println("Salary increased by 10% for all employees");
+                    System.out.println();
                     break;
                 case 5:
+                    double totalSalary = 0;
+                    for(Employee employee : employeeList) {
+                        totalSalary += employee.getSalary();
+                    }
+                    System.out.println("The sum of all salaries is: " + totalSalary);
+                    System.out.println();
                     break;
                 case 0:
                     System.out.println("Exiting app.");
