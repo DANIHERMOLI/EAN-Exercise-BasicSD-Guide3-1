@@ -72,39 +72,56 @@ public class Main {
                     System.out.println();
                     break;
                 case 2:
-                    for (Employee employee : employeeList) {
-                        System.out.println(employee);
-                        System.out.println();
+                    if(employeeList.size() == 0) {
+                        System.out.println("The list of employees is empty.");
+                    } else {
+                        for (Employee employee : employeeList) {
+                            System.out.println(employee);
+                            System.out.println();
+                        }
                     }
+                    System.out.println();
                     break;
                 case 3:
                     input.nextLine();
-                    System.out.println("What department are you looking for?");
-                    String search = input.nextLine();
-                    int counter = 0;
-                    for (Employee employee : employeeList) {
-                        if(employee.getDepartment().equals(search)) {
-                            System.out.println(employee);
-                            System.out.println();
-                            counter++;
+                    if(employeeList.size() == 0) {
+                        System.out.println("The list of employees is empty.");
+                    } else {
+                        System.out.println("What department are you looking for?");
+                        String search = input.nextLine();
+                        int counter = 0;
+                        for (Employee employee : employeeList) {
+                            if (employee.getDepartment().equals(search)) {
+                                System.out.println(employee);
+                                System.out.println();
+                                counter++;
+                            }
                         }
+                        System.out.println("The " + search + " department has " + counter + " employees.");
                     }
-                    System.out.println("The " + search + " department has " + counter + " employees.");
                     System.out.println();
                     break;
                 case 4:
-                    for(Employee employee : employeeList) {
-                        employee.setSalary(employee.getSalary()*0.10);
+                    if(employeeList.size() == 0) {
+                        System.out.println("The list of employees is empty.");
+                    } else {
+                        for (Employee employee : employeeList) {
+                            employee.setSalary(employee.getSalary() + (employee.getSalary() * 0.10));
+                        }
+                        System.out.println("Salary increased by 10% for all employees");
                     }
-                    System.out.println("Salary increased by 10% for all employees");
                     System.out.println();
                     break;
                 case 5:
-                    double totalSalary = 0;
-                    for(Employee employee : employeeList) {
-                        totalSalary += employee.getSalary();
+                    if(employeeList.size() == 0) {
+                        System.out.println("The list of employees is empty.");
+                    } else {
+                        long totalSalary = 0;
+                        for (Employee employee : employeeList) {
+                            totalSalary += employee.getSalary();
+                        }
+                        System.out.println("The sum of all salaries is: " + totalSalary);
                     }
-                    System.out.println("The sum of all salaries is: " + totalSalary);
                     System.out.println();
                     break;
                 case 0:
