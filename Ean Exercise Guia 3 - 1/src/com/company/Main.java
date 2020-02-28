@@ -52,9 +52,9 @@ public class Main {
                     newEmployee.setName(input.nextLine().toLowerCase());
                     do {
                         System.out.println("Enter the SALARY of the employee:");
-                        intChecker = input.hasNextLong();
+                        intChecker = input.hasNextDouble();
                         if(intChecker) {
-                            newEmployee.setSalary(input.nextLong());
+                            newEmployee.setSalary(input.nextDouble());
                             break;
                         } else {
                             System.out.println("ERROR: Invalid input. Please use Integers");
