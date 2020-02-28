@@ -21,17 +21,16 @@ public class Main {
         employeeList.add(test4);
         employeeList.add(test5);
         do {
-
             int option = menu();
             switch (option) {
                 case 1:
-                    Employee employee = new Employee();
+                    Employee newEmployee = new Employee();
                     boolean intChecker;
                     do {
                         System.out.println("Enter the ID of the employee:");
                         intChecker = input.hasNextInt();
                         if(intChecker) {
-                            employee.setId(input.nextInt());
+                            newEmployee.setId(input.nextInt());
                             break;
                         } else {
                             System.out.println("ERROR: Invalid input. Please use Integers");
@@ -40,12 +39,12 @@ public class Main {
                         input.nextLine();
                     } while(true);
                     System.out.println("Enter the NAME of the employee:");
-                    employee.setName(input.next().toLowerCase());
+                    newEmployee.setName(input.next().toLowerCase());
                     do {
                         System.out.println("Enter the SALARY of the employee:");
                         intChecker = input.hasNextLong();
                         if(intChecker) {
-                            employee.setSalary(input.nextLong());
+                            newEmployee.setSalary(input.nextLong());
                             break;
                         } else {
                             System.out.println("ERROR: Invalid input. Please use Integers");
@@ -53,19 +52,16 @@ public class Main {
                         input.nextLine();
                     } while(true);
                     System.out.println("Enter the DEPARTMENT of the employee:");
-                    employee.setDepartment(input.next().toLowerCase());
+                    newEmployee.setDepartment(input.next().toLowerCase());
                     System.out.println("Enter the CHARGE of the employee:");
-                    employee.setCharge(input.next().toLowerCase());
-                    employeeList.add(employee);
+                    newEmployee.setCharge(input.next().toLowerCase());
+                    employeeList.add(newEmployee);
                     break;
                 case 2:
-                    for(int i = 0; i < employeeList.size() - 1; i++) {
-                        System.out.println(employeeList.get(i));
+                    for (Employee employee : employeeList) {
+                        System.out.println(employee);
                         System.out.println();
                     }
-//                    for(Employee employee : employeeList ) {
-//                        System.out.println(employee.getName());
-//                    }
                     break;
                 case 3:
                     break;
