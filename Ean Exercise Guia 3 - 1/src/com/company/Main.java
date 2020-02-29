@@ -29,6 +29,12 @@ public class Main {
         employeeList.add(test3);
         employeeList.add(test4);
         employeeList.add(test5);
+        System.out.println();
+        System.out.println("#################################");
+        System.out.println("Welcome to the EAN Guide 3 Act. 1");
+        System.out.println("#################################");
+        System.out.println("--------Employee's list----------");
+        System.out.println();
         do {
             int option = menu();
             switch (option) {
